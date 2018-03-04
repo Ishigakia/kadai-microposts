@@ -15,15 +15,13 @@
         <div>
           <p><%= micropost.content %></p>
         </div>
-        <div>
-      <% if current_user == micropost.user %>
-            
-      <%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-xs' %>
-
+      <div>
+       <% if current_user == micropost.user %>
+       <%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-xs' %>
       <% end %>
-        </div>
-     </div>
-      
+       <%= link_to "Like", favorites_path, method: :post, class: 'btn btn-primary btn-xs' %>
+
+       
     </li>
   <% end %>
   <%= paginate microposts %>
